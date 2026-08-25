@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>StayAwake offscreen worker</title>
+    <!--
+      This page is never opened in a visible window — Chrome's Offscreen
+      Documents API runs it invisibly in the background. That's what keeps
+      the webcam feed away from the user: the <video> and <canvas> below
+      exist only in memory for the detector to read pixels from.
+    -->
+  </head>
+  <body>
+    <video id="cam" autoplay playsinline muted style="display: none"></video>
+    <canvas id="frame" style="display: none"></canvas>
+    <audio id="alarm" loop></audio>
+    <script type="module" src="offscreen.js"></script>
+  </body>
+</html>
