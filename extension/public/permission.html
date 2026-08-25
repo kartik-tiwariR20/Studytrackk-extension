@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>StayAwake — Allow camera access</title>
+    <style>
+      body {
+        margin: 0;
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: #12172b;
+        color: #f3f1ea;
+        font-family: system-ui, sans-serif;
+      }
+      .card {
+        max-width: 420px;
+        text-align: center;
+        padding: 32px;
+      }
+      h1 {
+        font-size: 20px;
+        margin-bottom: 8px;
+      }
+      p {
+        color: #8a93b8;
+        font-size: 14px;
+        line-height: 1.5;
+      }
+      button {
+        margin-top: 20px;
+        background: #ffb648;
+        color: #12172b;
+        border: none;
+        font-weight: 600;
+        font-size: 14px;
+        padding: 10px 22px;
+        border-radius: 999px;
+        cursor: pointer;
+      }
+      button:disabled {
+        opacity: 0.6;
+        cursor: default;
+      }
+      #status {
+        margin-top: 16px;
+        font-size: 13px;
+      }
+      #status.ok { color: #7ee787; }
+      #status.err { color: #ff6b5b; }
+      video { display: none; }
+    </style>
+  </head>
+  <body>
+    <div class="card">
+      <h1>Allow camera access</h1>
+      <p>
+        StayAwake needs your camera to watch for closed eyes. Chrome only
+        lets the extension ask for this in a regular tab like this one —
+        after you allow it once here, monitoring can turn on from the
+        popup without asking again.
+      </p>
+      <button id="grant-btn">Allow camera</button>
+      <div id="status"></div>
+      <video id="preview" autoplay playsinline muted></video>
+    </div>
+    <script src="permission.js"></script>
+  </body>
+</html>
